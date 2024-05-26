@@ -18,12 +18,40 @@ code {
   margin-left: auto;
   padding-right: 15px;
   padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .notes-list {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.note.new {
+  background-color: rgb(28, 196, 196);
+}
+
+textarea {
+  border: none;
+  resize: none;
+  background-color: rgb(28, 196, 196);
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.save:hover {
+  background-color: #ededed;
+  cursor: pointer;
+}
+
+.save {
+  background-color: rgb(247, 247, 247);
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
 }
 
 .note {
