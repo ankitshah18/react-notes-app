@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Note from "./Note";
 import AddNote from "./AddNote";
+import AllContext from "../context/context";
 
-const NotesList = ({ notes }) => {
+const NotesList = () => {
+  const { notes } = useContext(AllContext);
+
   return (
     <div className="notes-list">
       <AddNote />
