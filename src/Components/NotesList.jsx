@@ -4,12 +4,16 @@ import AddNote from "./AddNote";
 import AllContext from "../context/context";
 
 const NotesList = () => {
-  const { notes } = useContext(AllContext);
+  const { notes, searchText } = useContext(AllContext);
+
+  const Search = notes.filter((note) =>
+    note.text.toLowerCase().includes(searchText)
+  );
 
   return (
     <div className="notes-list">
       <AddNote />
-      {notes.map((note) => (
+      {Search.map((note) => (
         <Note key={note.id} note={note} />
       ))}
 

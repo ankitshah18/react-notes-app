@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AllContext from "./context";
 import { nanoid } from "nanoid";
 
 const Provider = ({ children }) => {
-  const x = 5;
+  const [searchText, setSearchText] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
@@ -43,8 +44,26 @@ const Provider = ({ children }) => {
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
   };
+
+  const deleteNote = (id) => {
+    console.log("id", id);
+    const newNotes = notes.filter((note) => note.id !== id);
+    setNotes(newNotes);
+  };
+
   return (
-    <AllContext.Provider value={{ x, notes, addNote }}>
+    <AllContext.Provider
+      value={{
+        notes,
+        addNote,
+        deleteNote,
+        setSearchText,
+        searchText,
+        setDarkMode,
+        darkMode,
+        setNotes,
+      }}
+    >
       {children}
     </AllContext.Provider>
   );
